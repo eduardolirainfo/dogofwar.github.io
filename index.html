@@ -75,13 +75,13 @@
 
 <ul class="slides">
       <li>
-<img class="responsive-img" src="images/tenor.gif" data-src="images/lira.jpg" alt="">
+<img class="responsive-img" data-src="images/lira.jpg" alt="">
       </li>
       <li>
-<img src="images/tenor.gif" data-src="images/mt.jpg" alt="">
+<img data-src="images/mt.jpg" alt="">
       </li>
       <li>
-<img src="images/tenor.gif" data-src="images/globe.png" alt="">
+<img  data-src="images/globe.png" alt="">
       </li>
     </ul>
 </section>
@@ -232,6 +232,16 @@ $(document).mousemove(function(e) {
         .css('top', moveY+'px')
         .css('transform', 'rotateX('+rotateX+'deg) rotateY('+rotateY+'deg)');
 });
+
+      var cb = function() {
+        var l = document.createElement('link'); l.rel = 'stylesheet';
+        l.href = '/css/materialize.css';
+        var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+      };
+      var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+          webkitRequestAnimationFrame || msRequestAnimationFrame;
+      if (raf) raf(cb);
+      else window.addEventListener('load', cb);
 });
 </script>
 </html>
