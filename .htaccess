@@ -32,3 +32,17 @@ FileETag none
     ExpiresByType application/x-shockwave-flash "access plus 1 week"
     ExpiresByType application/x-httpd-php-source "access plus 1 week"
 </IfModule>
+
+RewriteEngine on
+
+# Set the CF-IPCountry header value as "Country" variable
+SetEnvIf CF-IPCountry "(.*)$" Country=en
+
+RewriteCond %{ENV:Country} EN
+RewriteRule ^(.*)$ https://dogofwar.com.br/en [R,L]
+
+# Set the CF-IPCountry header value as "Country" variable
+SetEnvIf CF-IPCountry "(.*)$" Country=es
+
+RewriteCond %{ENV:Country} ES
+RewriteRule ^(.*)$ https://dogofwar.com.br/es [R,L]
