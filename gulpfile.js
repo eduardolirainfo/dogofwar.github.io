@@ -18,7 +18,7 @@ var config = {
         symbol: {
             dest: 'assets/icons',
             sprite: 'sprite.svg',
-            example: true
+            example: false
         }
     },
     svg: {
